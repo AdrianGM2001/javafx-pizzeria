@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adrian.controlador.ControladorVistaPrincipal">
+   <children>
+      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="140.0" spacing="10.0" styleClass="menu" stylesheets="@css/styles.css">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="clientesBoton" disable="true" mnemonicParsing="false" onAction="#changeVista" styleClass="botontexto" stylesheets="@css/styles.css" text="CLIENTES" />
+            <Button fx:id="pedidosBoton" mnemonicParsing="false" onAction="#changeVista" styleClass="botontexto" stylesheets="@css/styles.css" text="PEDIDO" />
+            <Button mnemonicParsing="false" onAction="#onClickSalir" styleClass="botontexto" stylesheets="@css/styles.css" text="SALIR" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <HBox fx:id="pedidosHBox" alignment="CENTER" layoutX="140.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="700.0" spacing="10.0" visible="false">
+         <children>
+            <GridPane fx:id="gridTarjetas" alignment="CENTER" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </GridPane>
+            <VBox alignment="CENTER" minWidth="-Infinity" prefHeight="600.0" prefWidth="340.0" spacing="10.0">
+               <children>
+                  <TableView fx:id="tablaPedidos" editable="true" minWidth="-Infinity" prefHeight="292.0" prefWidth="320.0" styleClass="tabla" stylesheets="@css/styles.css">
+                     <columns>
+                        <TableColumn fx:id="productoCol" minWidth="-Infinity" prefWidth="160.0" styleClass="columna" text="Producto" />
+                        <TableColumn fx:id="cantidadCol" minWidth="-Infinity" prefWidth="60.0" styleClass="columna" text="Cantidad" />
+                        <TableColumn fx:id="precioCol" minWidth="-Infinity" styleClass="columna" text="Precio" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <HBox alignment="CENTER" prefHeight="29.0" prefWidth="235.0" spacing="10.0">
+                     <children>
+                        <VBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <Label fx:id="precioTotal" text="Total" />
+                              <HBox alignment="CENTER" spacing="10.0">
+                                 <children>
+                                    <Label text="NIF" />
+                                    <TextField fx:id="nifPedido" />
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#onClickPagar" styleClass="botontexto" stylesheets="@css/styles.css" text="Pagar" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox fx:id="clientesVBox" alignment="TOP_CENTER" layoutX="140.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="700.0" spacing="10.0">
+         <children>
+            <TableView fx:id="tablaClientes" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" styleClass="tabla" stylesheets="@css/styles.css">
+              <columns>
+                  <TableColumn fx:id="nifCol" minWidth="-Infinity" prefWidth="150.0" styleClass="columna" text="NIF" />
+                <TableColumn fx:id="nombreCol" minWidth="-Infinity" prefWidth="150.0" styleClass="columna" text="Nombre" />
+                <TableColumn fx:id="apellidosCol" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="150.0" styleClass="columna" text="Apellidos" />
+              </columns>
+            </TableView>
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <HBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="NIF" />
+                              <TextField fx:id="nif" />
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Label text="Nombre" />
+                              <TextField fx:id="nombre" />
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Label text="Apellidos" />
+                              <TextField fx:id="apellidos" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#onClickAñadir" styleClass="botontexto" stylesheets="@css/styles.css" text="Añadir" />
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</Pane>
