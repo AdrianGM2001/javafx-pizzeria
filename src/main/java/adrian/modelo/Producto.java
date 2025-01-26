@@ -1,9 +1,9 @@
 package adrian.modelo;
 
 public class Producto {
-    private int id;
-    private String nombre;
-    private double precio;
+    private final int id;
+    private final String nombre;
+    private final double precio;
     private static int nProductos = 0;
 
     public Producto(String nombre, double precio) {
@@ -22,18 +22,6 @@ public class Producto {
 
     public double getPrecio() {
         return precio;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 
     @Override

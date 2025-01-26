@@ -1,7 +1,7 @@
 package adrian.modelo;
 
 public class LineaPedido {
-    private Producto producto;
+    private final Producto producto;
     private int cantidad;
     private double precio;
 
@@ -23,22 +23,10 @@ public class LineaPedido {
         return precio;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
     public void addCantidad(int cantidad) {
         this.cantidad += cantidad;
         precio = producto.getPrecio() * this.cantidad;
         precio = Math.round(precio * 100.0) / 100.0;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 
     @Override

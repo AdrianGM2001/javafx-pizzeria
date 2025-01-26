@@ -1,8 +1,5 @@
 package adrian.modelo;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 public class Cliente {
     private String nif;
     private String nombre;
@@ -36,14 +33,6 @@ public class Cliente {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
-    }
-
-    public StringProperty nombreProperty() {
-        return new SimpleStringProperty(nombre);
-    }
-
-    public StringProperty apellidosProperty() {
-        return new SimpleStringProperty(apellidos);
     }
 
     @Override

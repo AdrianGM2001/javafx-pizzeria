@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * JavaFX App
@@ -19,10 +20,10 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("vistaprincipal"), 840, 580);
-        scene.getStylesheets().add(App.class.getResource("css/styles.css").toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("css/styles.css")).toExternalForm());
         stage.setScene(scene);
         stage.setTitle("Pizzeria");
-        stage.getIcons().add(new Image(App.class.getResourceAsStream("img/logo.png")));
+        stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("img/logo.png"))));
         stage.setResizable(false);
         stage.show();
     }

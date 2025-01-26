@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adrian.controlador.ControladorVistaPrincipal">
+<Pane xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adrian.controlador.ControladorVistaPrincipal">
    <children>
       <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="140.0" spacing="10.0" styleClass="menu" stylesheets="@css/styles.css">
          <children>
@@ -65,7 +65,12 @@
                                     <TextField fx:id="nifPedido" />
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" onAction="#onClickPagar" styleClass="botontexto" stylesheets="@css/styles.css" text="Pagar" />
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Button fx:id="pagarBoton" mnemonicParsing="false" onAction="#onClickPagar" styleClass="botontexto" stylesheets="@css/styles.css" text="Pagar" />
+                                    <Button fx:id="graficaBoton" mnemonicParsing="false" onAction="#onClickGrafica" styleClass="botontexto" stylesheets="@css/styles.css" text="Gráfica" />
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                      </children>
@@ -110,7 +115,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" onAction="#onClickAñadir" styleClass="botontexto" stylesheets="@css/styles.css" text="Añadir" />
+                  <Button fx:id="botonAnyadir" mnemonicParsing="false" onAction="#onClickAnyadir" styleClass="botontexto" stylesheets="@css/styles.css" text="Añadir" />
                </children>
             </VBox>
          </children>
